@@ -21,11 +21,11 @@ class MyFrame extends JFrame implements ActionListener {
       ResultSet rs = null;
       
      
-    JLabel heading,studentName,rollNo,subject,q1,q2,q3,q4,q5,q6;
+    JLabel heading,studentName,RegNo,subject,q1,q2,q3,q4,q5,q6;
     JFrame frame = new JFrame();
     JButton jButton;
     TextField nameTextField = new TextField(20);
-    TextField rollNoTextField = new TextField(20);
+    TextField RegNoTextField = new TextField(20);
     Choice sub = new Choice();
     Choice ec1 = new Choice();
     Choice ec2 = new Choice();
@@ -45,40 +45,40 @@ class MyFrame extends JFrame implements ActionListener {
         heading.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         heading.setBounds(250,30,250,20);
         studentName = new JLabel("Name : ",JLabel.LEFT);
-        rollNo = new JLabel("RollNo : ",JLabel.LEFT);
+        RegNo = new JLabel("Reg.No : ",JLabel.LEFT);
         subject = new JLabel("Subject : ",JLabel.LEFT);
 
-        q1=new JLabel("1. Teacher is prepared for class : ",JLabel.LEFT);
-        q2=new JLabel("2. Teacher knows His/Her Subject : ",JLabel.LEFT);
-        q3=new JLabel("3. Teacher is Organised and neet : ",JLabel.LEFT);
-        q4=new JLabel("4. Teacher Plans class time and Assignments : ",JLabel.LEFT);
-        q5= new JLabel("5. Teacher is flexible : ",JLabel.LEFT);
-        q6=new JLabel("6. Teacher is clear about assignments and test : ",JLabel.LEFT);
+        q1=new JLabel("1. Teacher Is Prepared For Class : ",JLabel.LEFT);
+        q2=new JLabel("2. Teacher Knows His/Her Subject : ",JLabel.LEFT);
+        q3=new JLabel("3. Teacher Is Punctual And Regular : ",JLabel.LEFT);
+        q4=new JLabel("4. Teacher's Method Of Teaching  : ",JLabel.LEFT);
+        q5= new JLabel("5. Teacher's Communication Skills  : ",JLabel.LEFT);
+        q6=new JLabel("6. Teacher Answers The Questions Clearly : ",JLabel.LEFT);
 
 
-        studentName.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        studentName.setFont(new Font("Futura", Font.PLAIN, 20));
         studentName.setBounds(10,100,350,20);
-        rollNo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        rollNo.setBounds(10,150,350,20);
-        subject.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        RegNo.setFont(new Font("Futura", Font.PLAIN, 20));
+        RegNo.setBounds(10,150,350,20);
+        subject.setFont(new Font("Futura", Font.PLAIN, 20));
         subject.setBounds(10,200,310,20);
-        q1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q1.setFont(new Font("Futura", Font.PLAIN, 20));
         q1.setBounds(10,300,310,30);
-        q2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q2.setFont(new Font("Futura", Font.PLAIN, 20));
         q2.setBounds(10,350,340,30);
-        q3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q3.setFont(new Font("Futura", Font.PLAIN, 20));
         q3.setBounds(10,400,340,30);
-        q4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q4.setFont(new Font("Futura", Font.PLAIN, 20));
         q4.setBounds(10,450,420,30);
         q5.setBounds(10,500,420,30);
-        q5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q5.setFont(new Font("Futura", Font.PLAIN, 20));
         q6.setBounds(10,550,450,30);
-        q6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        q6.setFont(new Font("Futura", Font.PLAIN, 20));
 
 
         container.add(heading);
         container.add(studentName);
-        container.add(rollNo);
+        container.add(RegNo);
         container.add(subject);
         container.add(q1);
         container.add(q2);
@@ -91,14 +91,14 @@ class MyFrame extends JFrame implements ActionListener {
 
 
         nameTextField.setBounds(600,100,100,20);
-        rollNoTextField.setBounds(600,150,100,20);
+        RegNoTextField.setBounds(600,150,100,20);
         container.add(nameTextField);
-        container.add(rollNoTextField);
+        container.add(RegNoTextField);
 
 
 
 
-        sub.add("TOC"); sub.add("CD"); sub.add("WC"); sub.add("Java"); sub.add("OOPS");
+        sub.add("AOA"); sub.add("CD"); sub.add("WCN"); sub.add("Java"); sub.add("OS");
         ec1.add("Strongly Disagree"); ec1.add("Disagree"); ec1.add("Neutral"); ec1.add("Agree"); ec1.add("Strongly Agree");
         ec2.add("Strongly Disagree"); ec2.add("Disagree"); ec2.add("Neutral"); ec2.add("Agree"); ec2.add("Strongly Agree");
         ec3.add("Strongly Disagree"); ec3.add("Disagree"); ec3.add("Neutral"); ec3.add("Agree"); ec3.add("Strongly Agree");
@@ -136,7 +136,7 @@ class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String studentName = nameTextField.getText();
-        String rollNo = rollNoTextField.getText();
+        String RegNo = RegNoTextField.getText();
         String subjectSelected = sub.getItem(sub.getSelectedIndex());
         String question1_Output = ec1.getItem(ec1.getSelectedIndex());
         String question2_Output = ec2.getItem(ec2.getSelectedIndex());
@@ -145,11 +145,11 @@ class MyFrame extends JFrame implements ActionListener {
         String question5_Output = ec5.getItem(ec5.getSelectedIndex());
         String question6_Output = ec6.getItem(ec6.getSelectedIndex());
       
-    String sql = "INSERT INTO Faculty(StudentName,RollNo,SubjectName,Question1,Question2,Question3,Question4,Question5,Question6)VALUES(?,?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO Faculty(StudentName,RegNo,SubjectName,Question1,Question2,Question3,Question4,Question5,Question6)VALUES(?,?,?,?,?,?,?,?,?)";
    try{
        pat = con.prepareStatement(sql);
        pat.setString(1,studentName);
-       pat.setString(2,rollNo);
+       pat.setString(2,RegNo);
        pat.setString(3,subjectSelected);
        pat.setString(4,question1_Output);
        pat.setString(5,question2_Output);
